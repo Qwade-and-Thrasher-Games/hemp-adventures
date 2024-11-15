@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://4iof1coa14uf"]
+
+[ext_resource type="Script" path="res://Scripts/UI/GrowingSpacePanel.cs" id="1_4a8vf"]
+[ext_resource type="FontFile" uid="uid://buh5f5gka5oth" path="res://Assets/Fonts/Fancake.ttf" id="1_8igkr"]
+[ext_resource type="Texture2D" uid="uid://dgeah7kef3wnx" path="res://Assets/Textures/lock_overlay.png" id="1_083nw"]
+[ext_resource type="Shader" path="res://Shaders/BudColor.gdshader" id="4_1mhxx"]
+[ext_resource type="AudioStream" uid="uid://ck7j5voitn4eq" path="res://Assets/Audio/purchase.mp3" id="4_08dyr"]
+[ext_resource type="Texture2D" uid="uid://dimu2dvdls1jk" path="res://Assets/Textures/pixelated_image.png" id="4_rs8id"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jry66"]
+shader = ExtResource("4_1mhxx")
+shader_parameter/replacement_color = Color(0.533062, 4.30289e-05, 0.438261, 1)
+shader_parameter/target_color = Color(1, 0.65, 0, 1)
+shader_parameter/hue_tolerance = 0.3
+shader_parameter/saturation_tolerance = 0.3
+shader_parameter/value_tolerance = 0.3
+shader_parameter/preserve_luminosity = true
+shader_parameter/smoothness = 0.488
+shader_parameter/intensity = 0.633
+shader_parameter/invert_mask = false
+shader_parameter/color_range = Vector2(0, 1.2)
+shader_parameter/edge_detection = false
+shader_parameter/edge_thickness = 1.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/enable_animation = false
+shader_parameter/time_scale = 1.0
+
+[node name="GrowingSpacePanel" type="Panel"]
+custom_minimum_size = Vector2(200, 250)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4a8vf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LockOverlay" type="TextureRect" parent="MarginContainer/VBoxContainer2/Panel"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 1, 0.0313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_083nw")
+expand_mode = 1
+
+[node name="NewPlantButton" type="Button" parent="MarginContainer/VBoxContainer2/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.560784, 1, 0.529412, 1)
+theme_override_colors/font_pressed_color = Color(0.560784, 1, 0.529412, 1)
+theme_override_colors/font_color = Color(0.698039, 1, 0.670588, 1)
+theme_override_fonts/font = ExtResource("1_8igkr")
+text = "New Plant"
+flat = true
+
+[node name="BudOverlay" type="TextureRect" parent="MarginContainer/VBoxContainer2/Panel"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("ShaderMaterial_jry66")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rs8id")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="StrainLabel" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_8igkr")
+theme_override_font_sizes/font_size = 18
+text = "???"
+
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.698039, 1, 0.670588, 1)
+theme_override_fonts/font = ExtResource("1_8igkr")
+theme_override_font_sizes/font_size = 18
+text = "Progress: 0%"
+
+[node name="GrowingTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 360.0
+
+[node name="UIUpdateTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="PurchaseAudio" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_08dyr")
+volume_db = -13.371

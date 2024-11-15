@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv1nl7fi7hejf"]
+
+[ext_resource type="PackedScene" uid="uid://0f506i8pyiee" path="res://Scenes/UI.tscn" id="1_8b6xf"]
+[ext_resource type="PackedScene" uid="uid://4iof1coa14uf" path="res://Scenes/GrowingSpacePanel.tscn" id="2_drvdk"]
+[ext_resource type="PackedScene" uid="uid://dfy7vnlxu1vih" path="res://Scenes/FaciltySelectionPanel.tscn" id="3_mota2"]
+[ext_resource type="PackedScene" uid="uid://bxyy2rdmm11mf" path="res://Scenes/PurchaseGrowSpacePanel.tscn" id="3_wgiam"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_8b6xf")]
+GrowingSpacePanelScene = ExtResource("2_drvdk")
+GrowingSpacePurchasePanel = ExtResource("3_wgiam")
+FacilitySelectionPanel = ExtResource("3_mota2")

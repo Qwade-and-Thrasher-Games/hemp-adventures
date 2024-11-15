@@ -1,0 +1,277 @@
+[gd_scene load_steps=3 format=3 uid="uid://0f506i8pyiee"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UI.cs" id="1_ucpsi"]
+[ext_resource type="FontFile" uid="uid://buh5f5gka5oth" path="res://Assets/Fonts/Fancake.ttf" id="2_1wgsp"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_ucpsi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.203922, 0.32549, 0.32549, 1)
+
+[node name="FPSContainer" type="MarginContainer" parent="."]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FPSContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 18
+
+[node name="GameSpeedLabel" type="Label" parent="FPSContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Game Speed: 1x"
+
+[node name="FPSLabel" type="Label" parent="FPSContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "FPS: 144"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TopPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.698247, 1, 0.671603, 1)
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 28
+text = "Qwade Hemp Co."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TopPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/TopPanel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.698039, 1, 0.670588, 1)
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 24
+text = "$0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 24
+text = "Management"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="ManagementNav" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GrowingSpacesNavButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer/MarginContainer/ManagementNav"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Growing Spaces"
+alignment = 0
+
+[node name="InventoryNavButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer/MarginContainer/ManagementNav"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Inventory"
+alignment = 0
+
+[node name="StaffNavButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftPanel/MarginContainer/MarginContainer/ManagementNav"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Staff"
+alignment = 0
+
+[node name="RightPanel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GrowingSpacesView" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 24
+text = "Growing Spaces"
+
+[node name="GrowSpacesPaginationContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2"]
+layout_mode = 2
+
+[node name="GrowingSpacesContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1536, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 7
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 30
+columns = 6
+
+[node name="ActivePlants" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Active Plants: 0/4"
+vertical_alignment = 1
+
+[node name="AverageQuality" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Average Quality: 0%
+"
+vertical_alignment = 1
+
+[node name="MoneyPerSecond" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "$ Per Second: 2k"
+vertical_alignment = 1
+
+[node name="StaffCount" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Staff: 0/2"
+vertical_alignment = 1
+
+[node name="EquiptmentLevel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Equiptment Level: 1"
+vertical_alignment = 1
+
+[node name="ResearchPoints" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/GrowingSpacesView/MarginContainer2/VBoxContainer/Panel/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1wgsp")
+theme_override_font_sizes/font_size = 21
+text = "Research Points: 0"
+vertical_alignment = 1

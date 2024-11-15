@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfy7vnlxu1vih"]
+
+[ext_resource type="FontFile" uid="uid://buh5f5gka5oth" path="res://Assets/Fonts/Fancake.ttf" id="1_4uips"]
+
+[node name="FacilitySelectionPanel" type="Panel"]
+custom_minimum_size = Vector2(200, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="FacilityLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4uips")
+theme_override_font_sizes/font_size = 21
+text = "Facility 1: Basic"
+
+[node name="FacilitySelectedIndicator" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.698039, 1, 0.670588, 1)

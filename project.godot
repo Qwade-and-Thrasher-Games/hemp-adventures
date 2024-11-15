@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Hemp Adventures"
+run/main_scene="res://Scenes/StartScreen.tscn"
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/Core/GameManager.cs"
+ResourceManager="*res://Scripts/Resources/ResourceManager.cs"
+FacilityManager="*res://Scripts/Facility/FacilityManager.cs"
+StrainDatabase="*res://Scripts/Strains/StrainDatabase.cs"
+SaveLoadManager="*res://Scripts/Core/SaveLoadManager.cs"
+InventoryManager="*res://Scripts/Inventory/InventoryManager.cs"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Hemp Adventures"
+
+[rendering]
+
+viewport/hdr_2d=true
+textures/stretch/mode="disabled"
